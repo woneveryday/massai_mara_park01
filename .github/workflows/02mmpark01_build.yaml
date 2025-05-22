@@ -30,7 +30,7 @@ jobs:
             
             - name: run springboot application
               run: |
-                java -jar ./build/libs/massai-mara-park-01-0.0.1-SNAPSHOT.jar
+                java -jar ./build/libs/massai-mara-park-0.0.1-SNAPSHOT.jar &
                 sleep 30 #stand for 30 seconds
 
             - name: run automated test1
