@@ -1,0 +1,46 @@
+name: massai mara park 01 gradle build
+
+on:
+    workflow_dispatch
+
+jobs:
+    mmpark01_build:
+        runs-on: ubuntu-22.04
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v4
+
+            - name: Set up JDK 17
+              uses: actions/setup-java@v4
+              with:
+                java-version: '17'
+                distribution: 'termurin'
+
+            - name: Set up Gradle
+              uses: gradle/actions/setup-gradle@v4
+            
+            - name: grant execute permission
+              run: chmod +x gradlew
+
+            - name: Build with Gradle
+              run: ./gradlew clean build
+            
+            - name: list build/libs directory
+              run: ls -al ./build/libs
+            
+            - name: run springboot application
+              run: |
+                java -jar ./build/libs/massai-mara-park-01-0.0.1-SNAPSHOT.jar
+                sleep 30 #stand for 30 seconds
+
+            - name: run automated test1
+              run: |
+                curl http://localhost:8080 || exit 1
+            
+            - name: run automated test2
+              run: |
+                curl http://localhost:8080/images || exit 1
+            
+            - name: run automated test3
+              run: |
+                curl http://localhost:8080/animal || exit 1
