@@ -35,12 +35,12 @@ jobs:
 
             - name: run automated test1
               run: |
-                curl http://localhost:8080 || exit 1
+                curl http://localhost:8080
             
             - name: run automated test2
               run: |
-                curl http://localhost:8080/images || exit 1
+                curl http://localhost:8080/images
             
             - name: run automated test3
               run: |
-                curl http://localhost:8080/animal || exit 1
+                curl http://localhost:8080/animal
