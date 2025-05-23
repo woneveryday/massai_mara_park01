@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 env:
-  DOCKER_USERNAME: kangheejun
+  DOCKER_USERNAME: chaewon1
   IMAGE_NAME: massai_mara
   IMAGE_TAG: v${{ github.run_number }}
 
